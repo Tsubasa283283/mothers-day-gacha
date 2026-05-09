@@ -84,6 +84,7 @@ function draw() {
     updateStatus();
     renderGrid();
     if (isNew) flashGridItem(capsule.id);
+    openLetter(capsule.id, isNew);
     // コンプリートは最後の新規カプセル取得時のみ
     if (isNew && capsules.every(c => c.collected)) {
       setTimeout(celebrate, 200);

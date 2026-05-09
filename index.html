@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fde8ef">
+  <title>ありがとうカプセルガチャ — 母の日</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <p class="hero-deco">🌸 母の日 🌸</p>
+  <h1>ありがとう<br>カプセルガチャ</h1>
+  <p class="hero-sub">マミーへ。小さな手紙を、ひとつずつ。</p>
+  <p class="hero-desc">ボタンを押すと、感謝の手紙が入った<br>カプセルが出てきます。</p>
+</header>
+
+<main>
+
+  <!-- ガチャエリア -->
+  <section class="gacha-section">
+    <div class="gacha-machine" id="gachaMachine">
+      <div class="machine-globe">
+        <div class="globe-shine"></div>
+        <div class="globe-cap">
+          <div class="cap-top"></div>
+          <div class="cap-bottom"></div>
+        </div>
+      </div>
+      <div class="machine-neck"></div>
+      <div class="machine-body">
+        <span class="machine-label">GACHA</span>
+        <div class="machine-slot"></div>
+      </div>
+      <div class="machine-tray">
+        <div class="tray-cap" id="trayCap" data-id="0" data-fresh="0">
+          <div class="cap-top"></div>
+          <div class="cap-bottom"></div>
+        </div>
+      </div>
+    </div>
+    <button class="gacha-btn" id="gachaBtn">ありがとうを引く</button>
+    <p class="draw-count">引いた回数：<span id="drawCount">0</span> 回</p>
+  </section>
+
+  <!-- ステータスエリア -->
+  <section class="status-section">
+    <div class="status-card">
+      <p class="status-nums">
+        <span id="collectedCount">0</span><span class="status-total"> / 12 個 あつまりました</span>
+      </p>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="status-pct" id="statusPct">コンプリート率 0%</p>
+    </div>
+  </section>
+
+  <!-- カプセルグリッドエリア -->
+  <section class="capsules-section">
+    <h2 class="section-title">あつめたカプセル</h2>
+    <div class="capsules-grid" id="capsulesGrid"></div>
+  </section>
+
+  <!-- 最後の手紙エリア -->
+  <section class="final-section">
+    <div id="finalLocked">
+      <p class="final-hint">✉ すべてのカプセルを集めると、<br>最後の手紙が読めます</p>
+    </div>
+    <div id="finalUnlocked" hidden>
+      <button class="final-btn" id="finalBtn">最後の手紙を読む ✉</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- 手紙モーダル -->
+<div class="modal-overlay" id="letterOverlay" hidden>
+  <div class="modal-card" id="letterCard">
+    <button class="modal-close" id="letterClose" aria-label="閉じる">✕</button>
+    <span class="modal-badge" id="letterBadge"></span>
+    <h3 class="modal-title" id="letterTitle"></h3>
+    <hr class="modal-rule">
+    <p class="modal-body" id="letterBody"></p>
+  </div>
+</div>
+
+<!-- 最終手紙モーダル -->
+<div class="modal-overlay" id="finalOverlay" hidden>
+  <div class="modal-card final-card">
+    <button class="modal-close" id="finalClose" aria-label="閉じる">✕</button>
+    <div id="finalLetterContent"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
